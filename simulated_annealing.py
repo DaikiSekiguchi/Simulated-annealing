@@ -34,7 +34,7 @@ def simulated_annealing(current_temperature):
     current_x = random.uniform(-10, 10)
     current_score = calc_score(current_x)
 
-    while 0.001 < current_temperature:
+    while 0.0001 < current_temperature:
         # 遷移する大きさを決定
         step = random.random()
 
@@ -74,9 +74,11 @@ if __name__ == "__main__":
     for i in range(0, 1000):
         ans = simulated_annealing(10000)
 
+        # 局所最適解
         if -0.05 <= ans <= 0.05:
             failure += 1
 
+        # 大域最適解
         if 0.8 < ans <= 0.9:
             success += 1
 
